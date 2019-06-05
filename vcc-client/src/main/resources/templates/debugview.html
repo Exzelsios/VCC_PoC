@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug view</title>
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Datapool deployments</h2>
+
+    <div id="tableContainer">
+        <p th:if="${#lists.size(datapools) == 0}">It seems like there are no datapools deployed. Head over <a href="/">here</a> to change that!</p>
+
+        <div class="mt-5" th:each="dp,iStat : ${datapools}">
+            <h4 th:text="${dp.deploymentName}"></h4>
+
+            <table class="table" data-toggle="table">
+                <thead>
+                <tr>
+                    <th>dataVersion</th>
+                    <th>deploymentName</th>
+                    <th>image</th>
+                    <th>desiredReplicas</th>
+                    <th>actualReplicas</th>
+                    <th>currentCpuUtilization</th>
+                    <th>lastScaleTime</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text-nowrap" th:text="${dp.dataVersion}"></td>
+                    <td class="text-nowrap" th:text="${dp.deploymentName}"></td>
+                    <td class="text-nowrap" th:text="${dp.image}"></td>
+                    <td class="text-nowrap" th:text="${dp.desiredReplicas}"></td>
+                    <td class="text-nowrap" th:text="${dp.actualReplicas}"></td>
+                    <td class="text-nowrap" th:text="${dp.currentCpuUtilization != null} ? ${dp.currentCpuUtilization} + ' %' : 'unknown'"></td>
+                    <td class="text-nowrap" th:text="${dp.lastScaleTime}"></td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <h5>Pods</h5>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>image</th>
+                                <th>internalEndpoint</th>
+                                <th>status</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="pod: ${dp.pods}">
+                                <td th:text="${pod.id}"></td>
+                                <td th:text="${pod.image}"></td>
+                                <td th:text="${pod.internalEndpoint}"></td>
+                                <td th:text="${pod.status}"></td>
+
+                                <td>
+                                    <a th:if="${pod.status == 'idle'}" th:href="@{/client/debug/cpuload/start/} + ${pod.id}" class="btn btn-secondary">Start CPU load</a>
+                                    <a th:if="${pod.status == 'CPU overload'}" th:href="@{/client/debug/cpuload/stop/} + ${pod.id}" class="btn btn-secondary">Stop CPU load</a>
+                                    <a th:if="${pod.status == 'idle' || pod.status == 'CPU overload'}" th:href="@{/client/debug/pod/kill/} + ${pod.id}" class="btn btn-danger">Kill</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    setInterval(function() {
+        $("#tableContainer").load(location.href+" #tableContainer>*","");
+    }, 5000);
+
+</script>
+</body>
+</html>

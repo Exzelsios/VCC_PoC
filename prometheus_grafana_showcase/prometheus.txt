@@ -1,0 +1,239 @@
+# HELP tomcat_global_received_bytes_total
+# TYPE tomcat_global_received_bytes_total counter
+tomcat_global_received_bytes_total{name="http-nio-8080",} 152298.0
+# HELP http_server_requests_seconds
+# TYPE http_server_requests_seconds summary
+http_server_requests_seconds_count{exception="None",method="GET",status="200",uri="/ready",} 20852.0
+http_server_requests_seconds_sum{exception="None",method="GET",status="200",uri="/ready",} 14.216493998
+http_server_requests_seconds_count{exception="None",method="GET",status="200",uri="/actuator/prometheus",} 4170.0
+http_server_requests_seconds_sum{exception="None",method="GET",status="200",uri="/actuator/prometheus",} 79.638330945
+http_server_requests_seconds_count{exception="None",method="POST",status="200",uri="/vccrest/entity/getConfigurationContext/{dataPoolId}",} 1116.0
+http_server_requests_seconds_sum{exception="None",method="POST",status="200",uri="/vccrest/entity/getConfigurationContext/{dataPoolId}",} 28.799751157
+http_server_requests_seconds_count{exception="HttpMessageNotReadableException",method="POST",status="400",uri="/vccrest/entity/getConfigurationContext/{dataPoolId}",} 947.0
+http_server_requests_seconds_sum{exception="HttpMessageNotReadableException",method="POST",status="400",uri="/vccrest/entity/getConfigurationContext/{dataPoolId}",} 19.137214721
+http_server_requests_seconds_count{exception="None",method="GET",status="404",uri="/**",} 1.0
+http_server_requests_seconds_sum{exception="None",method="GET",status="404",uri="/**",} 0.003590235
+http_server_requests_seconds_count{exception="None",method="GET",status="200",uri="/**/favicon.ico",} 1.0
+http_server_requests_seconds_sum{exception="None",method="GET",status="200",uri="/**/favicon.ico",} 0.07050468
+# HELP http_server_requests_seconds_max
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{exception="None",method="GET",status="200",uri="/ready",} 4.78976E-4
+http_server_requests_seconds_max{exception="None",method="GET",status="200",uri="/actuator/prometheus",} 0.069430162
+http_server_requests_seconds_max{exception="None",method="POST",status="200",uri="/vccrest/entity/getConfigurationContext/{dataPoolId}",} 0.0
+http_server_requests_seconds_max{exception="HttpMessageNotReadableException",method="POST",status="400",uri="/vccrest/entity/getConfigurationContext/{dataPoolId}",} 0.0
+http_server_requests_seconds_max{exception="None",method="GET",status="404",uri="/**",} 0.003590235
+http_server_requests_seconds_max{exception="None",method="GET",status="200",uri="/**/favicon.ico",} 0.07050468
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-nmethods'",} 1276544.0
+jvm_memory_used_bytes{area="nonheap",id="Metaspace",} 7.8768168E7
+jvm_memory_used_bytes{area="heap",id="Tenured Gen",} 2.9838448E8
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'",} 1.806656E7
+jvm_memory_used_bytes{area="heap",id="Eden Space",} 5125768.0
+jvm_memory_used_bytes{area="heap",id="Survivor Space",} 892208.0
+jvm_memory_used_bytes{area="nonheap",id="Compressed Class Space",} 8850504.0
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 8365824.0
+# HELP hikaricp_connections_creation_seconds_max Connection creation time
+# TYPE hikaricp_connections_creation_seconds_max gauge
+hikaricp_connections_creation_seconds_max{pool="HikariPool-1",} 0.0
+# HELP hikaricp_connections_creation_seconds Connection creation time
+# TYPE hikaricp_connections_creation_seconds summary
+hikaricp_connections_creation_seconds{pool="HikariPool-1",quantile="0.95",} 0.0
+hikaricp_connections_creation_seconds_count{pool="HikariPool-1",} 119.0
+hikaricp_connections_creation_seconds_sum{pool="HikariPool-1",} 14.397
+# HELP tomcat_threads_current
+# TYPE tomcat_threads_current gauge
+tomcat_threads_current{name="http-nio-8080",} 4.0
+# HELP logback_events_total Number of error level events that made it to the logs
+# TYPE logback_events_total counter
+logback_events_total{level="error",} 0.0
+logback_events_total{level="warn",} 890.0
+logback_events_total{level="info",} 1168.0
+logback_events_total{level="debug",} 0.0
+logback_events_total{level="trace",} 0.0
+# HELP jvm_classes_unloaded_total The total number of classes unloaded since the Java virtual machine has started execution
+# TYPE jvm_classes_unloaded_total counter
+jvm_classes_unloaded_total 0.0
+# HELP jvm_gc_live_data_size_bytes Size of old generation memory pool after a full GC
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes 2451200.0
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for  the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-nmethods'",} 2555904.0
+jvm_memory_committed_bytes{area="nonheap",id="Metaspace",} 8.1002496E7
+jvm_memory_committed_bytes{area="heap",id="Tenured Gen",} 3.0343168E8
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'",} 2.064384E7
+jvm_memory_committed_bytes{area="heap",id="Eden Space",} 2.1495808E7
+jvm_memory_committed_bytes{area="heap",id="Survivor Space",} 2621440.0
+jvm_memory_committed_bytes{area="nonheap",id="Compressed Class Space",} 9699328.0
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 8454144.0
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'non-nmethods'",} 5828608.0
+jvm_memory_max_bytes{area="nonheap",id="Metaspace",} -1.0
+jvm_memory_max_bytes{area="heap",id="Tenured Gen",} 3.07625984E8
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'",} 1.22912768E8
+jvm_memory_max_bytes{area="heap",id="Eden Space",} 1.23076608E8
+jvm_memory_max_bytes{area="heap",id="Survivor Space",} 1.5335424E7
+jvm_memory_max_bytes{area="nonheap",id="Compressed Class Space",} 1.073741824E9
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 1.22916864E8
+# HELP tomcat_sessions_active_current
+# TYPE tomcat_sessions_active_current gauge
+tomcat_sessions_active_current 0.0
+# HELP tomcat_threads_busy
+# TYPE tomcat_threads_busy gauge
+tomcat_threads_busy{name="http-nio-8080",} 1.0
+# HELP tomcat_sessions_alive_max_seconds
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds 0.0
+# HELP hikaricp_connections_usage_seconds Connection usage time
+# TYPE hikaricp_connections_usage_seconds summary
+hikaricp_connections_usage_seconds{pool="HikariPool-1",quantile="0.95",} 0.0
+hikaricp_connections_usage_seconds_count{pool="HikariPool-1",} 4.0
+hikaricp_connections_usage_seconds_sum{pool="HikariPool-1",} 1.593
+# HELP hikaricp_connections_usage_seconds_max Connection usage time
+# TYPE hikaricp_connections_usage_seconds_max gauge
+hikaricp_connections_usage_seconds_max{pool="HikariPool-1",} 0.0
+# HELP hikaricp_connections_active Active connections
+# TYPE hikaricp_connections_active gauge
+hikaricp_connections_active{pool="HikariPool-1",} NaN
+# HELP hikaricp_connections_pending Pending threads
+# TYPE hikaricp_connections_pending gauge
+hikaricp_connections_pending{pool="HikariPool-1",} NaN
+# HELP process_files_max The maximum file descriptor count
+# TYPE process_files_max gauge
+process_files_max 1048576.0
+# HELP jvm_gc_max_data_size_bytes Max size of old generation memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes 1.22916864E8
+# HELP tomcat_global_request_seconds
+# TYPE tomcat_global_request_seconds summary
+tomcat_global_request_seconds_count{name="http-nio-8080",} 27016.0
+tomcat_global_request_seconds_sum{name="http-nio-8080",} 235.692
+# HELP hikaricp_connections_idle Idle connections
+# TYPE hikaricp_connections_idle gauge
+hikaricp_connections_idle{pool="HikariPool-1",} NaN
+# HELP tomcat_sessions_active_max
+# TYPE tomcat_sessions_active_max gauge
+tomcat_sessions_active_max 0.0
+# HELP tomcat_cache_access_total
+# TYPE tomcat_cache_access_total counter
+tomcat_cache_access_total 0.0
+# HELP tomcat_sessions_created_total
+# TYPE tomcat_sessions_created_total counter
+tomcat_sessions_created_total 0.0
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="Allocation Failure",} 276.0
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="Allocation Failure",} 5.606
+jvm_gc_pause_seconds_count{action="end of major GC",cause="Allocation Failure",} 2.0
+jvm_gc_pause_seconds_sum{action="end of major GC",cause="Allocation Failure",} 1.31
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="Allocation Failure",} 0.004
+jvm_gc_pause_seconds_max{action="end of major GC",cause="Allocation Failure",} 0.0
+# HELP system_cpu_usage The "recent cpu usage" for the whole system
+# TYPE system_cpu_usage gauge
+system_cpu_usage 0.02633744855967078
+# HELP tomcat_servlet_request_max_seconds
+# TYPE tomcat_servlet_request_max_seconds gauge
+tomcat_servlet_request_max_seconds{name="default",} 0.0
+# HELP jdbc_connections_min
+# TYPE jdbc_connections_min gauge
+jdbc_connections_min{name="dataSource",} 10.0
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage 5.488474204171241E-4
+# HELP hikaricp_connections_timeout_total Connection timeout total count
+# TYPE hikaricp_connections_timeout_total counter
+hikaricp_connections_timeout_total{pool="HikariPool-1",} 0.0
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count 1.0
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{id="mapped",} 0.0
+jvm_buffer_memory_used_bytes{id="direct",} 40960.0
+# HELP tomcat_servlet_error_total
+# TYPE tomcat_servlet_error_total counter
+tomcat_servlet_error_total{name="default",} 0.0
+# HELP hikaricp_connections_acquire_seconds Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds summary
+hikaricp_connections_acquire_seconds{pool="HikariPool-1",quantile="0.95",} 0.0
+hikaricp_connections_acquire_seconds_count{pool="HikariPool-1",} 4.0
+hikaricp_connections_acquire_seconds_sum{pool="HikariPool-1",} 0.003211789
+# HELP hikaricp_connections_acquire_seconds_max Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds_max gauge
+hikaricp_connections_acquire_seconds_max{pool="HikariPool-1",} 0.0
+# HELP jdbc_connections_active
+# TYPE jdbc_connections_active gauge
+jdbc_connections_active{name="dataSource",} 0.0
+# HELP jvm_threads_daemon The current number of live daemon threads
+# TYPE jvm_threads_daemon gauge
+jvm_threads_daemon 17.0
+# HELP tomcat_global_error_total
+# TYPE tomcat_global_error_total counter
+tomcat_global_error_total{name="http-nio-8080",} 890.0
+# HELP hikaricp_connections Total connections
+# TYPE hikaricp_connections gauge
+hikaricp_connections{pool="HikariPool-1",} NaN
+# HELP jdbc_connections_max
+# TYPE jdbc_connections_max gauge
+jdbc_connections_max{name="dataSource",} 10.0
+# HELP jvm_buffer_count An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count gauge
+jvm_buffer_count{id="mapped",} 0.0
+jvm_buffer_count{id="direct",} 5.0
+# HELP tomcat_global_sent_bytes_total
+# TYPE tomcat_global_sent_bytes_total counter
+tomcat_global_sent_bytes_total{name="http-nio-8080",} 5.7748776E7
+# HELP process_files_open The open file descriptor count
+# TYPE process_files_open gauge
+process_files_open 30.0
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds 20963.115
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{id="mapped",} 0.0
+jvm_buffer_total_capacity_bytes{id="direct",} 40960.0
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total 0.0
+# HELP tomcat_global_request_max_seconds
+# TYPE tomcat_global_request_max_seconds gauge
+tomcat_global_request_max_seconds{name="http-nio-8080",} 1.497
+# HELP tomcat_cache_hit_total
+# TYPE tomcat_cache_hit_total counter
+tomcat_cache_hit_total 0.0
+# HELP jvm_threads_peak The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak gauge
+jvm_threads_peak 21.0
+# HELP jvm_threads_live The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live gauge
+jvm_threads_live 19.0
+# HELP tomcat_threads_config_max
+# TYPE tomcat_threads_config_max gauge
+tomcat_threads_config_max{name="http-nio-8080",} 4.0
+# HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
+# TYPE system_load_average_1m gauge
+system_load_average_1m 1.45
+# HELP tomcat_sessions_rejected_total
+# TYPE tomcat_sessions_rejected_total counter
+tomcat_sessions_rejected_total 0.0
+# HELP process_start_time_seconds The start time of the Java virtual machine
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.536822853277E9
+# HELP jvm_classes_loaded The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded gauge
+jvm_classes_loaded 13174.0
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the young generation memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total 8847056.0
+# HELP tomcat_servlet_request_seconds
+# TYPE tomcat_servlet_request_seconds summary
+tomcat_servlet_request_seconds_count{name="default",} 0.0
+tomcat_servlet_request_seconds_sum{name="default",} 0.0
+# HELP tomcat_sessions_expired_total
+# TYPE tomcat_sessions_expired_total counter
+tomcat_sessions_expired_total 0.0

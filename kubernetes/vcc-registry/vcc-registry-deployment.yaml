@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcc-registry
+  labels:
+    app: vcc-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcc-registry
+  template:
+    metadata:
+      labels:
+        app: vcc-registry
+    spec:
+      containers:
+      - name: vcc-registry
+        image: vcc/registry:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

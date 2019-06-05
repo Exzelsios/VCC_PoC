@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcc-statusmanager
+  labels:
+    app: vcc-statusmanager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcc-statusmanager
+  template:
+    metadata:
+      labels:
+        app: vcc-statusmanager
+    spec:
+      containers:
+      - name: vcc-statusmanager
+        image: vcc/statusmanager:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        - containerPort: 9010

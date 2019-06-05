@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vcc-client
+  name: vcc-client
+  selfLink: /api/v1/namespaces/default/services/vcc-client
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - port: 30799
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: vcc-client
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

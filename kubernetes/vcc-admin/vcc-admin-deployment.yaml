@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcc-admin
+  labels:
+    app: vcc-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcc-admin
+  template:
+    metadata:
+      labels:
+        app: vcc-admin
+    spec:
+      containers:
+      - name: vcc-admin
+        image: vcc/admin:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+      
+

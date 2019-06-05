@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vcc-ingress
+  annotations:
+spec:
+  rules:
+   - http:
+      paths:
+      - path: /client
+        backend:
+          serviceName: vcc-client
+          servicePort: 30799
+      - path: /
+        backend:
+          serviceName: vcc-admin
+          servicePort: 1338

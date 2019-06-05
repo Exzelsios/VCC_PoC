@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Datapool</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+
+    <h2 class="mb-3">Add Datapool</h2>
+
+    <form th:action="@{/datapool/add}" th:object="${datapool}" method="post">
+        <div class="form-group">
+            <label for="dataVersionInput">dataVersion</label>
+            <input class="form-control" id="dataVersionInput" type="text" placeholder="dataVersion"
+                   th:field="*{dataVersion}">
+        </div>
+        <div class="form-group">
+            <label for="organizationIdInput">organizationId</label>
+            <input class="form-control" id="organizationIdInput" type="text"
+                   placeholder="organizationId"
+                   th:field="*{organizationId}">
+        </div>
+        <div class="form-group">
+            <label for="productStructureIdInput">productStructureId</label>
+            <input class="form-control" id="productStructureIdInput" type="text"
+                   placeholder="productStructureId"
+                   th:field="*{productStructureId}">
+        </div>
+        <div class="form-group">
+            <label for="countriesInput">countries</label>
+            <input class="form-control" id="countriesInput" type="text"
+                   placeholder="countries (eg. 1,2,3,4)"
+                   th:field="*{countries}">
+        </div>
+        <div class="form-group">
+            <label for="payloadSizeInput">payloadSize in bytes</label>
+            <input class="form-control" id="payloadSizeInput" type="text" placeholder="100000"
+                   th:field="*{payloadSize}">
+        </div>
+        <div class="form-group">
+            <label for="loadDelayInput">loadDelay in ms</label>
+            <input class="form-control" id="loadDelayInput" type="text" placeholder="10000"
+                   th:field="*{loadDelay}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="ml-2" href="/">Cancel</a>
+    </form>
+</div>
+</body>
+</html>

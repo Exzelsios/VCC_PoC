@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcc-client
+  labels:
+    app: vcc-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcc-client
+  template:
+    metadata:
+      labels:
+        app: vcc-client
+    spec:
+      containers:
+      - name: vcc-client
+        image: vcc/client:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

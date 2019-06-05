@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-test
+  labels:
+    app: memory-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory-test
+  template:
+    metadata:
+      labels:
+        app: memory-test
+    spec:
+      containers:
+      - name: memory-test
+        image: ntpan/memory-test:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: JVM_OPTS
+          value: "-Xmx256M"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: 1
+          limits:
+            memory: "370Mi"
+            cpu: 2

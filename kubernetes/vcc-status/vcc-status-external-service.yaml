@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vcc-status
+  name: vcc-status-external
+  selfLink: /api/v1/namespaces/default/services/vcc-status-external
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31608
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: vcc-status
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

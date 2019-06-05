@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vcc-status-repository
+  name: vcc-status-repository-external
+  selfLink: /api/v1/namespaces/default/services/vcc-status-repository-external
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31609
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: vcc-status-repository
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

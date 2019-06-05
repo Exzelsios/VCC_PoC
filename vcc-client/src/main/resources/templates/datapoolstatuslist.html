@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vcc client</title>
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Vcc Client</h2>
+
+    <h4 class="mt-5">Registry</h4>
+    <form th:action="@{/client/registry}" th:object="${getDatapoolsRequest}" method="post">
+        <div class="input-group">
+            <input type="text" class="form-control" id="inputOrganizationId" placeholder="organizationId" th:field="*{organizationId}">
+            <input type="text" class="form-control" id="inputProductStructureId" placeholder="productStructureId" th:field="*{productStructureId}">
+            <input type="text" class="form-control" id="countryId" placeholder="countryId" th:field="*{countryId}">
+
+            <button type="submit" class="btn btn-primary ml-2">Get datapools</button>
+        </div>
+    </form>
+
+    <h4 class="mt-5">Datapools</h4>
+    <div id="tableContainer">
+        <table class="table">
+            <tr>
+                <th>dataVersion</th>
+                <th>organizationId</th>
+                <th>productStructureId</th>
+                <th>countries</th>
+                <th>payloadSize</th>
+                <th>loadDelay</th>
+                <th>targetStatus</th>
+                <th>deploymentStatus</th>
+                <th>actions</th>
+            </tr>
+            <tr th:each="dp: ${datapools}">
+                <td class="text-nowrap" th:text="${dp.dataVersion}"></td>
+                <td class="text-nowrap" th:text="${dp.organizationId}"></td>
+                <td class="text-nowrap" th:text="${dp.productStructureId}"></td>
+                <td class="text-nowrap" th:text="${dp.getCountriesLabel()}"></td>
+                <td class="text-nowrap" th:text="${dp.payloadSize} + ' bytes'"></td>
+                <td class="text-nowrap" th:text="${dp.loadDelay} + ' ms'"></td>
+                <td class="text-nowrap" th:text="${dp.targetStatus}"></td>
+                <td class="text-nowrap" th:text="${dp.status}"></td>
+
+                <td class="text-nowrap">
+                    <a th:if="${dp.status == 'LOADED'}" th:href="@{/client/datapool/query/} + ${dp.dataVersion}" class="btn btn-success">Query</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    setInterval(function() {
+        $('#tableContainer').load(document.URL +  ' #tableContainer');
+    }, 5000);
+
+</script>
+</body>
+</html>

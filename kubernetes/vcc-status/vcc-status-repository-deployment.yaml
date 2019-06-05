@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcc-status-repository
+  labels:
+    app: vcc-status-repository
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcc-status-repository
+  template:
+    metadata:
+      labels:
+        app: vcc-status-repository
+    spec:
+      containers:
+      - name: vcc-status-repository
+        image: vcc/status-repository:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
