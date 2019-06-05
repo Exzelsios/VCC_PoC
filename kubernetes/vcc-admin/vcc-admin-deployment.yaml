@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
       - name: vcc-admin
-        image: vcc/admin:v1
-        imagePullPolicy: IfNotPresent
+        image: nttb/vcc-admin:v1
         ports:
         - containerPort: 8080
       

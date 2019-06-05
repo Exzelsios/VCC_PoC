@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: vcc-client
-        image: vcc/client:v1
+        image: nttb/vcc-client:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
       - name: vcc-statusmanager
-        image: vcc/statusmanager:v1
-        imagePullPolicy: IfNotPresent
+        image: nttb/vcc-statusmanager:v1
         ports:
         - containerPort: 8080
         - containerPort: 9010

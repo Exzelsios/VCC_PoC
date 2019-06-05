@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - name: vcc-registry
-        image: vcc/registry:v1
-        imagePullPolicy: IfNotPresent
+        image: nttb/vcc-registry:v1
         ports:
         - containerPort: 8080

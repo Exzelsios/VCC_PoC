@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - name: vcc-status-repository
-        image: vcc/status-repository:v1
-        imagePullPolicy: IfNotPresent
+        image: nttb/vcc-status-repository:v1
         ports:
         - containerPort: 8080
